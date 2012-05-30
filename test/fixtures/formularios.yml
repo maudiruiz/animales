@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mascota_id: 
+  usuario_id: 
+  revisado: false
+  aceptado: false
+  ocupacion: MyString
+  dependencia: MyString
+  autorizacion: MyString
+  direccion: MyText
+  telefono: MyString
+  celular: MyString
+
+two:
+  mascota_id: 
+  usuario_id: 
+  revisado: false
+  aceptado: false
+  ocupacion: MyString
+  dependencia: MyString
+  autorizacion: MyString
+  direccion: MyText
+  telefono: MyString
+  celular: MyString

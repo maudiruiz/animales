@@ -1,0 +1,218 @@
+<p id="notice"><%= notice %></p>
+
+<div id="nombrePerro">
+<%
+if @mascotum.id-1 == 0 
+@link1 = Mascotum.find(:last).id	
+else 
+@link1 =  @mascotum.id-1
+end
+
+if @mascotum.id+1 >  Mascotum.count 
+@link2 = Mascotum.find(:first).id	
+else 
+@link2 =  @mascotum.id+1
+end
+
+
+%>
+  <%= @mascotum.nombre %>
+</div>
+<table>
+<tr>
+   <th>
+
+<%= image_tag @mascotum.foto.url(:medium) , :id => "fotoMascota"%>
+</th>
+<th style="position: absolute;
+">
+
+<div id="solicitud-info">
+ 
+	<h1>Solicitud de adopción</h1>
+	<% if user_signed_in? %>
+	
+	<%= form_for(@formulario) do |f| %>
+	  <% if @formulario.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@formulario.errors.count, "error") %> prohibited this formulario from being saved:</h2>
+
+	      <ul>
+	      <% @formulario.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+
+		<%= f.hidden_field :mascota_id, :value=> @mascotum.id   %>
+    
+		<%=if user_signed_in?
+			  f.hidden_field :usuario_id, :value=> current_user.id 
+			end %>
+	
+
+	  <div class="field">
+	    <%= f.label :ocupacion %>
+		<div class="form-field" style="width:400px; top:40px;">
+	
+	    <%= f.text_field :ocupacion %>
+	</div>
+	  </div>
+	  <div class="field">
+	    <%= f.label :dependencia %><br />
+		<div class="form-field" style="width:400px; top:73px;">
+	
+	    <%= f.text_field :dependencia %>
+	</div>
+	  </div>
+	  <div class="field">
+	    <%= f.label :autorizacion %><br />
+			<div class="form-field" style="width:400px; top:105px;">
+	    		<%= f.text_field :autorizacion %>
+			</div>
+	  </div>
+	  <div class="field">
+	    <%= f.label :direccion %><br />
+			<div class="form-field" style="width:400px; top:137px;">
+	
+	    		<%= f.text_field :direccion %>
+			</div>
+	  </div>
+	  <div class="field">
+	    <%= f.label :telefono %><br />
+			<div class="form-field" style="width:400px; top:170px;">
+	
+	    		<%= f.text_field :telefono %>
+			</div>
+	  </div>
+	  <div class="field">
+	    <%= f.label :celular %><br />
+		<div class="form-field" style="width:400px; top:200px;">
+	
+	    <%= f.text_field :celular %>
+	</div>
+	  </div>
+
+	<div id="historiaAnimal">
+			<h2>Historia Animal</h2>
+			
+			
+			<div style="position:absolute; margin-top:10px; margin-left:20px;">Qué animales haz cuidado?</div>
+			<div class="form-field" style="margin-top:0px; left:110px;"><input type=TExT></div>
+			
+			<div style="position:absolute; margin-top:45px; margin-left:40px;">Cómo llegaron a ti?</div>
+			<div class="form-field" style="margin-top:33px;"><input type=TExT></div>
+			
+			<div style="position:absolute; margin-top:75px; margin-left:50px; width:180px;">¿Qué ha pasado con ellos? </div>
+			<div class="form-field" style="margin-top:66px; left:150px;"><input type=TExT></div>
+			
+			
+			
+			<div style="position:absolute; margin-top:110px; margin-left:60px; width:210px;">Estirilizarías a tu mascota? </div><div class="form-field" style="margin-top:100px; left:170px;"><input type=TExT></div>
+			
+			<div style="position:absolute; margin-top:145px; margin-left:65px; width:180px;">Vive algún animal contigo? </div><div class="form-field" style="margin-top:133px; left:190px;"><input type=TExT></div>
+		
+		
+			
+			
+			
+			
+				<%= f.submit "Enviar", :class => "fomulario-btn", :style => "margin-top: 160px;
+				margin-left: 500px; color:white; font-size:38px;"%>
+	
+	</div>
+	
+	<% end %>
+			  <% else %>
+
+			<div id="facebooklogin">
+				Actualmente no estás loggeado <br>
+					<%= link_to user_omniauth_authorize_path(:facebook) do %>
+				<%= image_tag "connect.jpg"%>
+				<%end%><br>
+			 <%= link_to "Inicia Sesión", new_user_session_path, :style => "color:red" %>	o <%= link_to "Registrate", new_user_registration_path, :style => "color:red" %>  en el sitio.
+				
+				
+				</div>
+			
+	<%end%>
+	<b style="padding-left:20px; cursor: pointer; cursor: hand;" onClick="cierraFormulario();">Cancelar</b>
+	
+	</div>
+<div id="info" >
+	<p>
+	  <b>Especie:</b>
+	  <%= @mascotum.especie %>
+	</p>
+
+	<p>
+	  <b>Color:</b>
+	  <%= @mascotum.color %>
+	</p>
+
+	<p>
+	  <b>Pelo:</b>
+	  <%= @mascotum.pelo %>
+	</p>
+
+	<p>
+	  <b>Tamano:</b>
+	  <%= @mascotum.tamano %>
+	</p>
+
+	<p>
+	  <b>Caracter:</b>
+	  <%= @mascotum.caracter %>
+	</p>
+
+	<p>
+	  <b>Observaciones:</b>
+	  <%= @mascotum.observaciones %>
+	</p>
+	
+	<p>
+	  <b>Protectora:</b>
+	  <%= @mascotum.protectora %>
+	</p>
+
+	<p>
+	  <b>Status:</b>
+	  <%= @mascotum.status %>
+	</p>
+	  <b>Formularios:</b>
+	  <%= @mascotum.formularios.count %>
+	</p>
+
+	<p>
+	  <b>Destacado:</b>
+
+	</p>
+	<div class="fomulario-btn" id="adopta-btn" onClick="adopta();">
+	<br>	ADOPTA
+		</div>
+
+	<a href="	  <%= @link1
+
+	
+	%>">
+<%= image_tag "flecha-izq.png", :id => "flecha-izq" %>
+</a>
+<a href="	  <%= @link2
+  %>">
+
+<%= image_tag "flecha-der.png", :id => "flecha-der" %>
+</a>
+</div>
+
+</th>
+</tr>
+</table>
+<% if admin_signed_in? || protectora_signed_in? && current_protectora.nombre == @mascotum.protectora  %>
+
+<div id="edit-buttons">
+
+<%= link_to 'Editar', edit_mascotum_path(@mascotum), :style => "color:red; font-weight:600; font-size:20px;" %> 
+</div>
+<%end%>

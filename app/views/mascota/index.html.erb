@@ -1,0 +1,106 @@
+<link href='http://fonts.googleapis.com/css?family=Alegreya+SC:700,400italic' rel='stylesheet' type='text/css' />
+<h1 style="font-size:30px; color:grey; margin-top:30px;">Adoptables</h1>
+<%= image_tag "adopta-bar.png"%>
+
+<noscript>
+	<style>
+		.da-thumbs li a div {
+			top: 0px;
+			left: -100%;
+			-webkit-transition: all 0.3s ease;
+			-moz-transition: all 0.3s ease-in-out;
+			-o-transition: all 0.3s ease-in-out;
+			-ms-transition: all 0.3s ease-in-out;
+			transition: all 0.3s ease-in-out;
+		}
+		.da-thumbs li a:hover div{
+			left: 0px;
+		}
+	</style>
+</noscript>
+		
+
+
+		 <div class="container">
+
+				<section>
+					<ul id="da-thumbs" class="da-thumbs">
+					
+								<% @mascota.each do |mascotum| %>
+												<li>
+													<%= link_to mascotum do %>
+														<%= image_tag mascotum.foto.url(:thumb) %>
+														<div><span><%= mascotum.nombre%></span></div>
+													<%end%>
+												</li>
+								<%end%>
+					</ul>
+				</section>
+	        </div>
+
+	
+
+	
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		$(function() {
+		
+			$('#da-thumbs > li').hoverdir();
+
+		});
+	</script>
+
+
+<!-- <h1>Listing mascota</h1>
+<br>
+<br>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Foto</th>
+
+    <th>Especie</th>
+    <th>Color</th>
+    <th>Pelo</th>
+    <th>Tamano</th>
+    <th>Caracter</th>
+    <th>Observaciones</th>
+    <th>Protectora</th>
+    <th>Status</th>
+    <th>Destacado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mascota.each do |mascotum| %>
+  <tr>
+    <td><%= mascotum.nombre %></td>
+    <td><%= image_tag mascotum.foto.url(:medium), :style => "width:100px;" %></td>
+
+    <td><%= mascotum.especie %></td>
+    <td><%= mascotum.color %></td>
+    <td><%= mascotum.pelo %></td>
+    <td><%= mascotum.tamano %></td>
+    <td><%= mascotum.caracter %></td>
+    <td><%= mascotum.observaciones %></td>
+    <td><%= mascotum.protectora %></td>
+    <td><%= mascotum.status %></td>
+    <td><%= mascotum.destacado %></td>
+    <td><%= link_to 'Show', mascotum %></td>
+    <td><%= link_to 'Edit', edit_mascotum_path(mascotum) %></td>
+    <td><%= link_to 'Destroy', mascotum, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mascotum', new_mascotum_path %> -->

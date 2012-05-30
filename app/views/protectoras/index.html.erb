@@ -1,0 +1,41 @@
+<h1>Listing protectoras</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Responsable</th>
+    <th>Email</th>
+    <th>Twitter</th>
+    <th>Facebook</th>
+    <th>Telefono</th>
+    <th>Logo</th>
+    <th>Zona</th>
+    <th>Autorizada</th>
+    <th>Extra</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @protectoras.each do |protectora| %>
+  <tr>
+    <td><%= protectora.nombre %></td>
+    <td><%= protectora.responsable %></td>
+    <td><%= protectora.email %></td>
+    <td><%= protectora.twitter %></td>
+    <td><%= protectora.facebook %></td>
+    <td><%= protectora.telefono %></td>
+    <td><%= protectora.logo %></td>
+    <td><%= protectora.zona %></td>
+    <td><%= protectora.autorizada %></td>
+    <td><%= protectora.extra %></td>
+    <td><%= link_to 'Show', protectora %></td>
+    <td><%= link_to 'Edit', edit_protectora_path(protectora) %></td>
+    <td><%= link_to 'Destroy', protectora, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Protectora', new_protectora_path %>

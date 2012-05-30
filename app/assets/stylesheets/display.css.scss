@@ -1,0 +1,234 @@
+
+#page{
+margin: 0em auto;
+max-width: 750px;
+}
+#user-nav{
+
+position:absolute;
+margin-right:25%;
+
+top:0;
+right:5px;
+
+text-align:right;
+display:none;
+}
+#bandera{
+position:absolute;
+top:0;
+}
+#logo{
+margin-left:100px;
+margin-top:15px;
+}
+#registrate{
+margin-left:500px;
+margin-top:30px;
+}
+#nombrePerro{
+color:grey;
+font-size:32px;
+margin-bottom:10px;
+}
+#adopta-btn{
+position:absolute;
+left:3px; 
+bottom:0; 
+color:white;
+font-size:38px;
+padding-left:23px;
+line-height: 22px;
+}
+.fomulario-btn{
+background-image: url(/assets/adopta-btn.png);
+width: 202px;
+height:69px;
+background-repeat:no-repeat;
+background-color:none;
+}
+#enviar-formulario{
+margin-left: 400px;
+}
+
+input[type="submit"]{
+background-color:none;
+}
+#historiaAnimal h2{
+color: white;
+padding-left: 20px;
+font-size: 20px;
+padding-top: 3px;
+}
+
+#flecha-izq{
+position:absolute;
+bottom:20px;
+right:150px;
+}
+#flecha-der{
+position:absolute;
+right:100px;
+bottom:20px;
+
+}
+#solicitud-info{
+background-image: url(/assets/info-solicitud.png);
+background-repeat:no-repeat;
+width:555px;
+height:223px;
+display:none;
+opacity:0;
+padding-top: 50px;
+padding-left: 90px;
+
+}
+.form-field{
+position:absolute;
+background-image: url(/assets/form-field.png);
+background-repeat:no-repeat;
+height:35px;
+left:130px;
+padding-top: 8px;
+padding-left: 36px;
+
+}
+#solicitud-info input{
+border:none;
+font-size: 16px;
+
+}
+#solicitud-info input:focus{
+outline:0;
+}
+#solicitud-info h1{
+color:white;
+font-weight:500;
+font-size:22px;
+position:absolute;
+top:10px;
+left:46px;
+}
+#info{
+background-image: url(/assets/back-info.png);
+background-repeat:no-repeat;
+width:390px;
+height:290px;
+padding-left:75px;
+z-index:9999;
+margin-left:-50px;
+padding-top:20px;
+
+}
+#fotoMascota{
+height:281px;
+}
+#info b{
+color:#E94D55;
+}
+#edit-buttons{
+margin-top:10px;
+
+}
+#flag-user{
+background-image: url(/assets/registrate.png);
+background-repeat:no-repeat;
+width:101px;
+height:30px;
+color:white;
+margin-left: 100px;
+}
+#user-name{
+width:100px;
+}
+#slider{
+position: relative;
+margin-top: -450px;
+float: right;
+width: 1000px;
+z-index: 1000;
+ right:-239px; 
+/* right: 23px; */
+/* right:-130px; IPAD*/
+}
+#randoms{
+width:500px;
+}
+#protectoraRan{
+
+}
+#mascotaRan{
+float:right;
+
+}
+#menu{
+margin-bottom:40px;
+float:none;
+}
+#menu ul{
+list-style: none;
+}
+#menu li{
+float: left;
+margin: 0 1px;
+width: 85px;
+height: 30px;
+padding-top: 3px;
+padding-left: 10px;
+color:black;
+
+}
+#facebooklogin{
+margin-top:40px;
+text-align:center;
+line-height:25px;
+}
+#adoptado-ban{
+margin-bottom:-69px;
+width:86px;
+height:74px;
+margin-left:119px;
+position:absolute;
+margin-top:-3px;
+}
+#historiaAnimal{
+margin-top:20px;
+background-image: url(/assets/historiaBack.png);
+margin-left:-150px;
+width:715px;
+height:251px;
+background-repeat:no-repeat;
+
+}
+
+#sidebar{
+position:fixed;
+width:66px;
+height:316px;
+right:0;
+top:100px;
+background-image: url(/assets/barra.png);
+}
+#formularios-bar{
+background-image: url(/assets/hojita.png);
+width:40px;
+height:30px;
+background-repeat:no-repeat;
+margin-top:30px; margin-left:30px;
+color:white;
+font-size:24px;
+padding-top:6px;
+padding-left:4px;
+
+}
+
+#mascotas-bar{
+margin-top:30px; margin-left:30px;
+}
+#menu li:hover{
+background-image: url(/assets/flechilla.png);
+	background-repeat:no-repeat; color:white;
+}
+
+footer {position:absolute; bottom:0; display:none;	}
+

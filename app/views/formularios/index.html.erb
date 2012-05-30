@@ -1,0 +1,41 @@
+<h1>Listing formularios</h1>
+
+<table>
+  <tr>
+    <th>Mascota</th>
+    <th>Usuario</th>
+    <th>Revisado</th>
+    <th>Aceptado</th>
+    <th>Ocupacion</th>
+    <th>Dependencia</th>
+    <th>Autorizacion</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
+    <th>Celular</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @formularios.each do |formulario| %>
+  <tr>
+    <td><%= formulario.mascota_id %></td>
+    <td><%= formulario.usuario_id %></td>
+    <td><%= formulario.revisado %></td>
+    <td><%= formulario.aceptado %></td>
+    <td><%= formulario.ocupacion %></td>
+    <td><%= formulario.dependencia %></td>
+    <td><%= formulario.autorizacion %></td>
+    <td><%= formulario.direccion %></td>
+    <td><%= formulario.telefono %></td>
+    <td><%= formulario.celular %></td>
+    <td><%= link_to 'Show', formulario %></td>
+    <td><%= link_to 'Edit', edit_formulario_path(formulario) %></td>
+    <td><%= link_to 'Destroy', formulario, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Formulario', new_formulario_path %>

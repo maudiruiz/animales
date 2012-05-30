@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  
+		<title>Animales</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+
+
+</head>
+
+
+
+<body>
+	<div id="user-nav">
+			<div id="user_nav">
+			  USUARIO :  <% if user_signed_in? %>
+			 Signed in as <b><%= current_user.name %>.</b> Not you?
+			    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+			  <% else %>
+			    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
+			  <% end %>
+			</div>
+			<div id="protectora_nav">
+			  PROTECTORA: <% if protectora_signed_in? %>
+			   Signed in as <%= current_protectora.email %>. Not you?
+			    <%= link_to "Sign out", destroy_protectora_session_path, :method => :delete %>
+			  <% else %>
+			    <%= link_to "Sign up", new_protectora_registration_path %> or <%= link_to "sign in", new_protectora_session_path %>
+			  <% end %>
+			</div>
+
+			<div id="admin_nav">
+			  Admin: <% if admin_signed_in? %>
+			   Signed in as <%= current_admin.email %> Not you?
+			    <%= link_to "Sign out", destroy_admin_session_path, :method => :delete %>
+			  <% else %>
+			    <%= link_to "Sign up", new_admin_registration_path %> or <%= link_to "sign in", new_admin_session_path %>
+			  <% end %>
+			</div>
+		</div>
+	</div>
+	<div id="page">
+			<a href="/">	<div id="bandera"><%= image_tag "bandera.png"%></div>
+	<div id="logo"><%= image_tag "logo.png"%>
+		</div></a>
+			
+			
+			<% if user_signed_in? %>
+			
+			    <%= link_to destroy_user_session_path, :method => :delete do%>
+		<div id="registrate" > 
+			<div id="user-name">
+		<%= current_user.name %> 
+			</div>
+			<div id="flag-user" style="padding-left:25px; padding-top:5px; margin-top: -25px;">
+			Log Out
+			</div>
+		</div>
+		<%end%>
+			  <% else %>
+			<%= link_to user_omniauth_authorize_path(:facebook) do %>
+			
+			<div id="registrate">
+				
+				<div id="flag-user" style="padding-left:20px; padding-top:5px;">
+					Registrate
+				</div>
+			</div>
+				<% end %>
+			  <% end %>
+	
+			<% if flash[:notice] %>
+						    <div id="notice"><%= flash[:notice] %></div>
+						<% end %>
+		
+	<%= yield %>
+	
+	
+</body>
+
+
+
+	<div id="sidebar">
+		<h1 style="color:white; margin-top:37px; margin-left:10px;">Status</h1>
+		<div id="formularios-bar">
+			6
+		
+			</div>
+			<div style="text-shadow: 0px 2px 3px #555; margin-left:22px;">Forms</div>
+			
+		<div id="mascotas-bar">
+		<%= image_tag "huella.png"%>
+		</div>
+			<div style="text-shadow: 0px 2px 3px #555; margin-left:27px;">Pets</div>
+		
+	</div>
+
+
+
+</html>
+<footer>
+	
+			<div id="protectora-nav">
+	 <% if protectora_signed_in? %>
+			   Sesión iniciada como <%= current_protectora.email %> No eres tú?
+			    <%= link_to "Log out", destroy_protectora_session_path, :method => :delete %>
+			  <% else %>
+			    Eres una protectora? <%= link_to "Registrate", new_protectora_registration_path %> o <%= link_to "Inicia sesión", new_protectora_session_path %>
+			  <% end %>
+			</div>
+
+	</footer>

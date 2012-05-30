@@ -1,0 +1,13 @@
+<h1>Editing mascotum</h1>
+<% if admin_signed_in? || current_protectora.nombre == @mascotum.protectora  %>
+<%= render 'form' %>
+
+<%= link_to 'Show', @mascotum %> |
+<%= link_to 'Back', mascota_path %>
+<td><%= link_to 'Destroy', @mascotum, confirm: 'Are you sure?', method: :delete %></td>
+
+<%else%>
+<h2>CHAVO TU NO PUEDES EDITAR UNA MASCOTA QUE NO ES DE TU ORGANIZACION.</h2>
+<%end%>
+
+

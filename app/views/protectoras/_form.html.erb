@@ -1,0 +1,57 @@
+<%= form_for(@protectora) do |f| %>
+  <% if @protectora.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@protectora.errors.count, "error") %> prohibited this protectora from being saved:</h2>
+
+      <ul>
+      <% @protectora.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :responsable %><br />
+    <%= f.text_field :responsable %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter %><br />
+    <%= f.text_field :twitter %>
+  </div>
+  <div class="field">
+    <%= f.label :facebook %><br />
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :logo %><br />
+    <%= f.file_field :logo %>
+  </div>
+  <div class="field">
+    <%= f.label :zona %><br />
+    <%= f.text_field :zona %>
+  </div>
+  <div class="field">
+    <%= f.label :autorizada %><br />
+    <%= f.check_box :autorizada %>
+  </div>
+  <div class="field">
+    <%= f.label :extra %><br />
+    <%= f.text_field :extra %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

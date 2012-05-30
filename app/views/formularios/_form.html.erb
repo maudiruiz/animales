@@ -1,0 +1,57 @@
+<%= form_for(@formulario) do |f| %>
+  <% if @formulario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@formulario.errors.count, "error") %> prohibited this formulario from being saved:</h2>
+
+      <ul>
+      <% @formulario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mascota_id %><br />
+    <%= f.text_field :mascota_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_id %><br />
+    <%= f.text_field :usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :revisado %><br />
+    <%= f.check_box :revisado %>
+  </div>
+  <div class="field">
+    <%= f.label :aceptado %><br />
+    <%= f.check_box :aceptado %>
+  </div>
+  <div class="field">
+    <%= f.label :ocupacion %><br />
+    <%= f.text_field :ocupacion %>
+  </div>
+  <div class="field">
+    <%= f.label :dependencia %><br />
+    <%= f.text_field :dependencia %>
+  </div>
+  <div class="field">
+    <%= f.label :autorizacion %><br />
+    <%= f.text_field :autorizacion %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br />
+    <%= f.text_area :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :celular %><br />
+    <%= f.text_field :celular %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

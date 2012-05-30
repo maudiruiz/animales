@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @protectora.nombre %>
+</p>
+
+<p>
+  <b>Responsable:</b>
+  <%= @protectora.responsable %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @protectora.email %>
+</p>
+
+<p>
+  <b>Twitter:</b>
+  <%= @protectora.twitter %>
+</p>
+
+<p>
+  <b>Facebook:</b>
+  <%= @protectora.facebook %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @protectora.telefono %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= image_tag @protectora.logo.url(:medium) %>
+</p>
+
+<p>
+  <b>Zona:</b>
+  <%= @protectora.zona %>
+</p>
+
+<p>
+  <b>Autorizada:</b>
+  <%= @protectora.autorizada %>
+</p>
+
+
+<b>Nuestras mascotas:</b>
+<% @mis_mascotas.each do |mi_mascota| %>
+<br>
+<%=mi_mascota.nombre%>
+<%end%><br>
+
+
+<%= link_to 'Edit', edit_protectora_path(@protectora) %> |
+<%= link_to 'Back', protectoras_path %>

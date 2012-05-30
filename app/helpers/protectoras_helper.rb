@@ -1,0 +1,2 @@
+module ProtectorasHelper
+end

@@ -1,0 +1,71 @@
+
+<div class="container">
+	
+		<div id="da-slider" class="da-slider">
+		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' 					type='text/css'>
+		<% @mascotasDestacadas.each do |mascota| %>
+			<div class="da-slide">
+				<%= link_to mascota do %>
+					<h2 ><%= mascota.nombre%></a>
+				<%end%>
+	  				</h2></a>
+				<p><%= mascota.observaciones%></p>
+				<a href="#" class="da-link">Adóptalo</a>
+				<a href="#/ok">	<div class="da-img"><%= image_tag mascota.foto.url(:medium) %></a>
+  			</div>
+		</div>
+		<%end%>
+
+
+		<nav class="da-arrows">
+			<span class="da-arrows-prev"></span>
+			<span class="da-arrows-next"></span>
+		</nav>
+		</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		$('#da-slider').cslider({
+		autoplay	: true,
+		});
+	});
+	</script>
+<div id="slider"><%= image_tag "slider.png"%></div>
+
+<div id="menu">
+	<ul>
+	<li style="	background-image: url(/assets/flechilla.png);
+		background-repeat:no-repeat; color:white;">HOME</li>
+	<li><a href="/mascota">Adoptables</a></li>
+	<li>Nosotros</li>
+	<li>Protectoras</li>
+	<li>Términos</li>
+	<%= image_tag "dobleGo.png" %>
+	
+	
+	
+	
+	
+		</ul>
+</div>
+
+<div id="randoms">
+	<div id="mascotaRan">
+		
+		<% @mascotaRan = @mascotasDestacadas.sample%>
+			<div id="adoptado-ban">
+				<%= image_tag "adoptado.png" %>
+
+			</div>
+		<%= link_to @mascotaRan do %>
+		<%= image_tag @mascotaRan.foto.url(:thumb) %>
+		<%end%>
+	
+</div>
+	<div id="protectoraRan">
+		<%@protectoraRan = Protectora.all.sample%>
+			<%= link_to @protectoraRan do %>
+		<%= image_tag @protectoraRan.logo.url(:thumb) %>
+		<%end%>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  especie: MyString
+  color: MyString
+  pelo: MyString
+  tamano: MyString
+  caracter: MyString
+  observaciones: MyText
+  foto: MyString
+  protectora: MyString
+  status: MyString
+  destacado: false
+
+two:
+  nombre: MyString
+  especie: MyString
+  color: MyString
+  pelo: MyString
+  tamano: MyString
+  caracter: MyString
+  observaciones: MyText
+  foto: MyString
+  protectora: MyString
+  status: MyString
+  destacado: false

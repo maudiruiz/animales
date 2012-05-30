@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Mascota:</b>
+  <%= @formulario.mascota.nombre %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @formulario.usuario.email %>
+</p>
+
+<p>
+  <b>Revisado:</b>
+  <%= @formulario.revisado %>
+</p>
+
+<p>
+  <b>Aceptado:</b>
+  <%= @formulario.aceptado %>
+</p>
+
+<p>
+  <b>Ocupacion:</b>
+  <%= @formulario.ocupacion %>
+</p>
+
+<p>
+  <b>Dependencia:</b>
+  <%= @formulario.dependencia %>
+</p>
+
+<p>
+  <b>Autorizacion:</b>
+  <%= @formulario.autorizacion %>
+</p>
+
+<p>
+  <b>Direccion:</b>
+  <%= @formulario.direccion %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @formulario.telefono %>
+</p>
+
+<p>
+  <b>Celular:</b>
+  <%= @formulario.celular %>
+</p>
+
+
+<%= link_to 'Edit', edit_formulario_path(@formulario) %> |
+<%= link_to 'Back', formularios_path %>

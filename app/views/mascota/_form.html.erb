@@ -1,0 +1,79 @@
+<%= form_for(@mascotum) do |f| %>
+  <% if @mascotum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mascotum.errors.count, "error") %> prohibited this mascotum from being saved:</h2>
+
+      <ul>
+      <% @mascotum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :especie %><br />
+    <%= f.text_field :especie %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :pelo %><br />
+    <%= f.text_field :pelo %>
+  </div>
+  <div class="field">
+    <%= f.label :tamaño %><br />
+    <%= f.text_field :tamano %>
+  </div>
+  <div class="field">
+    <%= f.label :caracter %><br />
+    <%= f.text_field :caracter %>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones %><br />
+    <%= f.text_area :observaciones %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_area :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :foto %><br />
+    <%= f.file_field :foto %>
+  </div>
+  <div class="field">
+	
+	
+	<% if !admin_signed_in? %>
+	    	<%= f.hidden_field :protectora, :value=> @protectoraNombre   %>
+	<%end%>
+	  <div class="field">
+	<% if admin_signed_in? %>
+	    	<%= f.text_field :protectora %>
+	<%end%>
+
+
+ 
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+<% if !admin_signed_in? %>
+    <%= f.hidden_field :destacado, :value => @destacados %>
+<%end%>
+  <div class="field">
+<% if admin_signed_in? %>
+    <%= f.check_box :destacado %>
+<%end%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
