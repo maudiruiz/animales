@@ -1,0 +1,22 @@
+	Mis mascotas<br>
+	
+	<% if user_signed_in? %>
+		<%= @currentUser.email %> 
+	<%end%>
+	<br>
+	
+	<% if admin_signed_in? %>
+		<%= @currentUser.name %> 
+	<%end%><br>
+	
+	
+	<% if protectora_signed_in? %>
+		<%= @currentUser.nombre %> 
+	<%end%>
+	
+	<% @misMascotas.each do |miMascota| %>
+	<%= miMascota.nombre%> <%= miMascota.status	%> <td><%= link_to 'Edit', edit_mascotum_path(miMascota) %></td>
+    <br>
+	
+	<%end%>
+	

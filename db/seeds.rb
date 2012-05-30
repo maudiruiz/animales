@@ -51,8 +51,8 @@ Mascotum.create(
 :tamano => 'Pequeno 60cm',
 :caracter => 'Carinoso Leal Jugueton',
 :observaciones => 'Firulais fue encontrado en la colonia condesa, es muy amistoso y le gusta mucho jugar con ninios pequenios',
-
-:protectora =>"RescataPatitas",
+:creator => '1',
+:protectora =>"1",
 :status=>"En adopcion",
 :destacado =>true
 )
@@ -65,7 +65,9 @@ Mascotum.create(
 :caracter => 'Un poco solitario',
 :observaciones => 'Luna es la mayor de una camada de 6 gatitos, nacio hace 1 mes',
 
-:protectora =>"RescataPatitas",
+:protectora =>"1",
+:creator => '1',
+
 :status=>"En adopcion",
 :destacado =>true
 )
@@ -75,10 +77,12 @@ Mascotum.create(
 :color => 'Blanco',
 :pelo => 'Corto',
 :tamano => 'Mediano 70cm',
+:creator => '1',
+
 :caracter => 'Alegre y juguetona',
 :observaciones => 'Kiara es una perrita muy feliz',
 
-:protectora =>"Animalia",
+:protectora =>"2",
 :status=>"En adopcion",
 :destacado =>true
 )

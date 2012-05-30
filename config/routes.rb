@@ -1,4 +1,8 @@
 Animales::Application.routes.draw do
+  get "user/currentUser"
+
+  get "users/currentUser"
+
   resources :formularios
 
   devise_for :admins

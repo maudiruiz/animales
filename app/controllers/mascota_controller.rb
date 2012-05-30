@@ -5,8 +5,8 @@ class MascotaController < ApplicationController
 
 
   def authorize
-    redirect_to "/" unless current_admin || current_protectora && current_protectora.autorizada
-    flash[:notice] = 'No tiene suficientes permisos para acceder aqui' unless current_admin || current_protectora && current_protectora.autorizada
+    redirect_to "/" unless current_admin || current_user || current_protectora && current_protectora.autorizada 
+    flash[:notice] = 'No tiene suficientes permisos para acceder aqui' unless current_admin || current_user  || current_protectora && current_protectora.autorizada
   end
 
 
@@ -25,6 +25,13 @@ class MascotaController < ApplicationController
   # GET /mascota/1.json
   def show
     @mascotum = Mascotum.find(params[:id])
+    if @mascotum.creator == 0
+    @protectora = User.find(:all, :conditions => {:id => @mascotum.protectora})[0].name
+    elsif @mascotum.creator == 1
+    @protectora = Protectora.find(:all, :conditions => {:id => @mascotum.protectora})[0].nombre
+    elsif @mascotum.creator == 2
+      @protectora = Admin.find(:all, :conditions => {:id => @mascotum.protectora})[0].email
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,8 +44,19 @@ class MascotaController < ApplicationController
   # GET /mascota/new.json
 
   def new
-
-    @protectoraNombre = current_protectora.id unless current_admin
+    if  current_user && !current_protectora && !current_admin
+      @creadorID = current_user.id
+      @creator = 0
+    elsif current_protectora && !current_admin
+      @creator = 1
+      @creadorID = current_protectora.id 
+    
+    elsif current_admin 
+      @creator = 2
+      @creadorID = current_admin.id
+    end
+    
+    
     @destacados = false
     @mascotum = Mascotum.new
 
@@ -52,9 +70,23 @@ class MascotaController < ApplicationController
   def edit
      
     @mascotum = Mascotum.find(params[:id])
-  
-    @protectoraNombre = @mascotum.protectora
+    @creator = @mascotum.creator
+    @creadorID = @mascotum.protectora
+    
+    @creadorID = @mascotum.protectora
+    
     @destacados = @mascotum.destacado
+    if @mascotum.creator == 0 && @mascotum.protectora.to_i == current_user.id
+    @pass = true
+    
+    elsif @mascotum.creator == 1 && @mascotum.protectora.to_i == current_protectora.id
+     @pass = true
+     
+     elsif @mascotum.creator == 2 && @mascotum.protectora.to_i == current_admin.id
+      @pass = true
+      
+    end
+    
 
     
   end

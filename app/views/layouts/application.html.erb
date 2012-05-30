@@ -63,6 +63,8 @@
 		<%end%>
 			  <% else %>
 			<%= link_to user_omniauth_authorize_path(:facebook) do %>
+		
+		    
 			
 			<div id="registrate">
 				
@@ -114,3 +116,7 @@
 			</div>
 
 	</footer>
+	
+	 <% if admin_signed_in? %>
+			    <%= link_to "Log out ADMIN", destroy_admin_session_path, :method => :delete %>
+			 <%end%>

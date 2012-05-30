@@ -3,4 +3,5 @@ class Mascotum < ActiveRecord::Base
       has_attached_file :foto, :styles => { :medium => "700x700>", :thumb => "200x150>" }  
       has_many :formularios, :class_name => "Formulario", :foreign_key => :mascota_id  
       
+      
 end

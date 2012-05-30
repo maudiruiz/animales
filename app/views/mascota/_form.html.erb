@@ -39,25 +39,29 @@
     <%= f.label :observaciones %><br />
     <%= f.text_area :observaciones %>
   </div>
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_area :nombre %>
-  </div>
+
   <div class="field">
     <%= f.label :foto %><br />
     <%= f.file_field :foto %>
   </div>
+<%= @creator%>
   <div class="field">
 	
+	<% if @creator == 0 %>
+	<%= f.hidden_field :protectora, :value=> @creadorID   %>
 	
-	<% if !admin_signed_in? %>
-	    	<%= f.hidden_field :protectora, :value=> @protectoraNombre   %>
+	
+	<% elsif @creator == 1 %>
+	    	<%= f.hidden_field :protectora, :value=> @creadorID   %>
+	
+	
 	<%end%>
 	  <div class="field">
-	<% if admin_signed_in? %>
-	    	<%= f.text_field :protectora %>
+	<% if @creator == 2 %>
+	
+	    	<%= f.text_field :protectora, :value=> @creadorID  %>
 	<%end%>
-
+	<%= f.hidden_field :creator, :value=> @creator   %>
 
  
   </div>
