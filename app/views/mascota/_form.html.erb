@@ -67,7 +67,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+	<%= f.select( "status", { "En adopción" => "0", "Adoptado" => "1"}) %>
   </div>
 <% if !admin_signed_in? %>
     <%= f.hidden_field :destacado, :value => @destacados %>

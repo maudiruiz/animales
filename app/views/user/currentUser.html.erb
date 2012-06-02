@@ -1,4 +1,5 @@
-<%if @currentUserPass == true%>	Mis mascotas<br>
+<%if @currentUserPass == true %>	
+Mis mascotas<br>
 	
 	<% if user_signed_in? %>
 		<%= @currentUser.email %> 
@@ -17,12 +18,16 @@
 	
 
 	<% @misMascotas.each do |miMascota| %>
-	<%= miMascota.nombre%> <%= miMascota.status	%> <td><%= link_to 'Edit', edit_mascotum_path(miMascota) %></td>
-    <br>
-	
+	<%= link_to mascotum_path(miMascota) do %>
+	<%= miMascota.nombre%>
 	<%end%>
-	
-<%end%>
-<%else%>
-No hay nada
+	</a>
+	<%= miMascota.status	%> <td><%= link_to 'Edit', edit_mascotum_path(miMascota) %></td>
+	<td><%= miMascota.formularios.count%> </td>
+    <br>
+	<%end%>
+
+
+<% else %>
+Upa upa a dónde?
 <%end%>

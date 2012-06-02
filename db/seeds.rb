@@ -53,7 +53,7 @@ Mascotum.create(
 :observaciones => 'Firulais fue encontrado en la colonia condesa, es muy amistoso y le gusta mucho jugar con ninios pequenios',
 :creator => '1',
 :protectora =>"1",
-:status=>"En adopcion",
+:status=>"0",
 :destacado =>true
 )
 Mascotum.create(
@@ -68,7 +68,7 @@ Mascotum.create(
 :protectora =>"1",
 :creator => '1',
 
-:status=>"En adopcion",
+:status=>"0",
 :destacado =>true
 )
 Mascotum.create(
@@ -83,6 +83,6 @@ Mascotum.create(
 :observaciones => 'Kiara es una perrita muy feliz',
 
 :protectora =>"2",
-:status=>"En adopcion",
+:status=>"0",
 :destacado =>true
 )
