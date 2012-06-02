@@ -22,8 +22,18 @@ Mis mascotas<br>
 	<%= miMascota.nombre%>
 	<%end%>
 	</a>
-	<%= miMascota.status	%> <td><%= link_to 'Edit', edit_mascotum_path(miMascota) %></td>
-	<td><%= miMascota.formularios.count%> </td>
+	<% if miMascota.status.to_i == 0
+		@status = "En adopción"
+	
+	   elsif miMascota.status.to_i == 1
+		@status = "Adoptado"
+	end
+	%>
+	
+	<%= @status%>
+	
+	 <td><%= link_to 'Edit', edit_mascotum_path(miMascota) %></td>
+	<td>Formularios: <%= miMascota.formularios.count%> </td>
     <br>
 	<%end%>
 
@@ -31,3 +41,4 @@ Mis mascotas<br>
 <% else %>
 Upa upa a dónde?
 <%end%>
+

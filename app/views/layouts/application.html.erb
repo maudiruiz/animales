@@ -8,7 +8,25 @@
   <%= csrf_meta_tags %>
 
 
+<%
+@formsCount = 0
+if  current_user && !current_protectora && !current_admin
+@barcreator = 0
+@barcreadorID = current_user.id
 
+elsif current_protectora && !current_admin
+	@barcreator = 1
+	@barcreadorID = current_protectora.id
+    
+elsif current_admin 
+	@barcreator = 2
+	@barcreadorID = current_admin.id
+    
+
+end
+@barmisMascotas = Mascotum.find(:all, :conditions => {:protectora => @barcreadorID,:creator=>@barcreator})
+
+%>
 </head>
 
 
@@ -87,10 +105,12 @@
 
 
 	<div id="sidebar">
-		<h1 style="color:white; margin-top:37px; margin-left:10px;">Status</h1>
+		<h1 style=" margin-top:37px; margin-left:10px;"><a style="color:white;" href="/user/currentUser">Status</a></h1>
 		<div id="formularios-bar">
-			6
-		
+			<% @barmisMascotas.each do |miMascota| %>
+			<% @formsCount =  @formsCount + miMascota.formularios.count%>
+			<%end%>
+			<%= @formsCount%>
 			</div>
 			<div style="text-shadow: 0px 2px 3px #555; margin-left:22px;">Forms</div>
 			
