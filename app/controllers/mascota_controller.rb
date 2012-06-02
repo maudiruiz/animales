@@ -73,17 +73,18 @@ class MascotaController < ApplicationController
     @creator = @mascotum.creator
     @creadorID = @mascotum.protectora
     
-    @creadorID = @mascotum.protectora
-    
     @destacados = @mascotum.destacado
     if @mascotum.creator == 0 && @mascotum.protectora.to_i == current_user.id
     @pass = true
     
-    elsif @mascotum.creator == 1 && @mascotum.protectora.to_i == current_protectora.id
+    elsif @mascotum.creator == 1 && protectora_signed_in? && @mascotum.protectora.to_i == current_protectora.id
      @pass = true
      
      elsif @mascotum.creator == 2 && @mascotum.protectora.to_i == current_admin.id
       @pass = true
+    elsif admin_signed_in?
+      @pass = true
+      
       
     end
     
