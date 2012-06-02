@@ -18,7 +18,8 @@ class UserController < ApplicationController
         @creator = 2
         @creadorID = current_admin.id
       end
-      
+    else
+      @currentUserPass = false
     
       @misMascotas = Mascotum.find(:all, :conditions => {:protectora => @creadorID,:creator=>@creator})
     

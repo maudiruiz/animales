@@ -1,4 +1,4 @@
-	Mis mascotas<br>
+<%if @currentUserPass == true%>	Mis mascotas<br>
 	
 	<% if user_signed_in? %>
 		<%= @currentUser.email %> 
@@ -14,9 +14,15 @@
 		<%= @currentUser.nombre %> 
 	<%end%>
 	
+	
+
 	<% @misMascotas.each do |miMascota| %>
 	<%= miMascota.nombre%> <%= miMascota.status	%> <td><%= link_to 'Edit', edit_mascotum_path(miMascota) %></td>
     <br>
 	
 	<%end%>
 	
+<%end%>
+<%else%>
+No hay nada
+<%end%>
