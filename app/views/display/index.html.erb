@@ -32,40 +32,4 @@
 	</script>
 <div id="slider"><%= image_tag "slider.png"%></div>
 
-<div id="menu">
-	<ul>
-	<li style="	background-image: url(/assets/flechilla.png);
-		background-repeat:no-repeat; color:white;">HOME</li>
-	<li><a href="/mascota">Adoptables</a></li>
-	<li>Nosotros</li>
-	<li>Protectoras</li>
-	<li>Términos</li>
-	<%= image_tag "dobleGo.png" %>
-	
-	
-	
-	
-	
-		</ul>
-</div>
 
-<div id="randoms">
-	<div id="mascotaRan">
-		
-		<% @mascotaRan = @mascotasDestacadas.sample%>
-			<div id="adoptado-ban">
-				<%= image_tag "adoptado.png" %>
-
-			</div>
-		<%= link_to @mascotaRan do %>
-		<%= image_tag @mascotaRan.foto.url(:thumb) %>
-		<%end%>
-	
-</div>
-	<div id="protectoraRan">
-		<%@protectoraRan = Protectora.all.sample%>
-			<%= link_to @protectoraRan do %>
-		<%= image_tag @protectoraRan.logo.url(:thumb) %>
-		<%end%>
-	</div>
-</div>

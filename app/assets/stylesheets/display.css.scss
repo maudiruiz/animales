@@ -153,6 +153,8 @@ z-index: 1000;
 }
 #randoms{
 width:500px;
+margin-top:50px;
+margin-bottom:100px;
 }
 #protectoraRan{
 
@@ -164,6 +166,7 @@ float:right;
 #menu{
 margin-bottom:40px;
 float:none;
+margin-top:50px;
 }
 #menu ul{
 list-style: none;
@@ -171,12 +174,18 @@ list-style: none;
 #menu li{
 float: left;
 margin: 0 1px;
-width: 85px;
+width: 120px;
 height: 30px;
 padding-top: 3px;
-padding-left: 10px;
+padding-left: 20px;
 color:black;
+font-size:14px;
 
+}
+.slected_menu{
+	background-image: url(/assets/flechilla.png);
+	background-repeat:no-repeat; 
+	color:white;
 }
 #facebooklogin{
 margin-top:40px;
@@ -230,5 +239,4 @@ background-image: url(/assets/flechilla.png);
 	background-repeat:no-repeat; color:white;
 }
 
-footer {position:absolute; bottom:0; 	}
 

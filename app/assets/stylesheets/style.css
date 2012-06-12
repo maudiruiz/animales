@@ -18,7 +18,7 @@ PRIMERA
 .da-thumbs {
 	list-style: none;
 	width: 700px;
-	height: 600px;
+	min-height: 300px;
 	position: relative;
 	margin: 20px auto;
 	padding: 0;

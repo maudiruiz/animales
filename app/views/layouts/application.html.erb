@@ -49,6 +49,7 @@ if  current_user && !current_protectora && !current_admin
 
 @misMascotas = Mascotum.find(:all, :conditions => {:protectora => @creadorID,:creator=>@creator})
 
+@mascotasDestacadas = Mascotum.find(:all, :conditions => {:destacado => true})
 
 %>
 </head>
@@ -148,8 +149,42 @@ if  current_user && !current_protectora && !current_admin
 	</div>
 
 
+	<div id="menu">
+		<ul>
+		<li><a href="/">HOME</a></li>
+		<li><a href="/mascota">Adoptables</a></li>
+		<li>Nosotros</li>
+		<li><a href="/protectoras">Protectoras</a></li>
+		<li>Términos</li>
+		<%= image_tag "dobleGo.png" %>
 
-</html>
+
+
+
+
+			</ul>
+	</div>
+
+	<div id="randoms">
+		<div id="mascotaRan">
+
+			<% @mascotaRan = @mascotasDestacadas.sample%>
+				<div id="adoptado-ban">
+					<%= image_tag "adoptado.png" %>
+
+				</div>
+			<%= link_to @mascotaRan do %>
+			<%= image_tag @mascotaRan.foto.url(:thumb) %>
+			<%end%>
+
+	</div>
+		<div id="protectoraRan">
+			<%@protectoraRan = Protectora.all.sample%>
+				<%= link_to @protectoraRan do %>
+			<%= image_tag @protectoraRan.logo.url(:thumb) %>
+			<%end%>
+		</div>
+	</div>
 <footer>
 	
 			<div id="protectora-nav">
@@ -165,4 +200,6 @@ if  current_user && !current_protectora && !current_admin
 	
 	 <% if admin_signed_in? %>
 			    <%= link_to "Log out ADMIN", destroy_admin_session_path, :method => :delete %>
-			 <%end%>
+	
+		 <%end%>
+		</html>

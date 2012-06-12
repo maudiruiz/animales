@@ -1,4 +1,68 @@
-<h1>Listing protectoras</h1>
+<link href='http://fonts.googleapis.com/css?family=Alegreya+SC:700,400italic' rel='stylesheet' type='text/css' />
+<h1 style="font-size:30px; color:grey; margin-top:30px;">Protectoras</h1>
+<%= image_tag "adopta-bar.png"%>
+
+<noscript>
+	<style>
+		.da-thumbs li a div {
+			top: 0px;
+			left: -100%;
+			-webkit-transition: all 0.3s ease;
+			-moz-transition: all 0.3s ease-in-out;
+			-o-transition: all 0.3s ease-in-out;
+			-ms-transition: all 0.3s ease-in-out;
+			transition: all 0.3s ease-in-out;
+		}
+		.da-thumbs li a:hover div{
+			left: 0px;
+		}
+	</style>
+</noscript>
+		
+
+
+		 <div class="container">
+
+				<section>
+					<ul id="da-thumbs" class="da-thumbs">
+					
+								<% @protectoras.each do |protectora| %>
+												<li>
+													<%= link_to protectora do %>
+														<%= image_tag protectora.logo.url(:thumb) %>
+														<div><span><%= protectora.nombre%></span></div>
+													<%end%>
+												</li>
+								<%end%>
+					</ul>
+				</section>
+	        </div>
+
+	
+
+	
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		$(function() {
+		
+			$('#da-thumbs > li').hoverdir();
+
+		});
+	</script>
+
+
+
+
+
+
+
+<!-- <h1>Listing protectoras</h1>
 
 <table>
   <tr>
@@ -38,4 +102,4 @@
 
 <br />
 
-<%= link_to 'New Protectora', new_protectora_path %>
+<%= link_to 'New Protectora', new_protectora_path %> -->

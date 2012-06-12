@@ -12,7 +12,7 @@ function adopta(){
 					setTimeout("$('#solicitud-info').animate({opacity: 1,marginLeft:'-40px'}	, 'slow');",200);
 			
 	widthIni = document.getElementById('fotoMascota').style.width;
-	
+$('#menu').animate({marginTop:'350px'}	, 'slow');
 }
 
 function cierraFormulario(){
@@ -22,6 +22,7 @@ function cierraFormulario(){
 			$("#fotoMascota").animate(
 		            {height: "281px",width:widthIni,marginTop:"0"}	, "slow");
 			
+					$('#menu').animate({marginTop:'50px'}	, 'slow');
 			
 		
 			
