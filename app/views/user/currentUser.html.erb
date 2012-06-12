@@ -34,6 +34,9 @@ Mis mascotas<br>
 	
 	 <td><%= link_to 'Edit', edit_mascotum_path(miMascota) %></td>
 	<td>Formularios: <%= miMascota.formularios.count%> </td>
+	<% miMascota.formularios.each do |formulario|%>
+    <%= link_to 'Show', formulario %>
+	<%end%>
     <br>
 	<%end%>
 	<%end%>
