@@ -16,10 +16,11 @@ Mis mascotas<br>
 	<%end%>
 	
 	
-
+	<%if @misMascotas != nil%>
 	<% @misMascotas.each do |miMascota| %>
 	<%= link_to mascotum_path(miMascota) do %>
 	<%= miMascota.nombre%>
+	<%end%>
 	<%end%>
 	</a>
 	<% if miMascota.status.to_i == 0
