@@ -28,7 +28,8 @@ class ApplicationController < ActionController::Base
        end
 
 
-       @misMascotas = Mascotum.find(:all, :conditions => {:protectora => @creadorID.to_i,:creator=>@creator})
+       unless @misMascotas = Mascotum.find(:all, :conditions => {:protectora => @creadorID,:creator=>@creator}) = nil
+         raise "Fuck me"
 
     
 
