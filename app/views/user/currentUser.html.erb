@@ -21,7 +21,6 @@ Mis mascotas<br>
 	<%= link_to mascotum_path(miMascota) do %>
 	<%= miMascota.nombre%>
 	<%end%>
-	<%end%>
 	</a>
 	<% if miMascota.status.to_i == 0
 		@status = "En adopción"
@@ -36,6 +35,7 @@ Mis mascotas<br>
 	 <td><%= link_to 'Edit', edit_mascotum_path(miMascota) %></td>
 	<td>Formularios: <%= miMascota.formularios.count%> </td>
     <br>
+	<%end%>
 	<%end%>
 
 
