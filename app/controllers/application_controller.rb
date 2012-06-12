@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
        end
 
 
-       @misMascotas = Mascotum.find(:all, :conditions => {:protectora => @creadorID,:creator=>@creator})
+       @misMascotas = Mascotum.find(:all, :conditions => {:protectora => @creadorID.to_i,:creator=>@creator})
 
     
 
