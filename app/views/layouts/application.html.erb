@@ -24,7 +24,31 @@ elsif current_admin
     
 
 end
-# COREGIR ESTA SENTENCIA@barmisMascotas = Mascotum.find(:all, :conditions => {:protectora => @barcreadorID,:creator=>@barcreator})
+if  current_user && !current_protectora && !current_admin
+  @currentUser = current_user
+   @creadorID = current_user.id
+   @creator = 0
+   @currentUserPass = true
+
+ elsif current_protectora && !current_admin
+   @currentUser = current_protectora
+
+   @creator = 1
+   @creadorID = current_protectora.id 
+   @currentUserPass = true
+
+ elsif current_admin 
+   @currentUser = current_admin
+
+   @creator = 2
+   @creadorID = current_admin.id
+   @currentUserPass = true
+
+ end
+
+
+@misMascotas = Mascotum.find(:all, :conditions => {:protectora => @creadorID,:creator=>@creator})
+
 
 %>
 </head>
@@ -107,12 +131,12 @@ end
 	<div id="sidebar">
 		<h1 style=" margin-top:37px; margin-left:10px;"><a style="color:white;" href="/user/currentUser">Status</a></h1>
 		<div id="formularios-bar">
-			<% if @barmisMascotas != nil %>
-			<% @barmisMascotas.each do |miMascota| %>
+			<% @misMascotas.each do |miMascota| %>
 			<% @formsCount =  @formsCount + miMascota.formularios.count%>
 			<%end%>
-			<%end%>
 			<%= @formsCount%>
+
+			
 			</div>
 			<div style="text-shadow: 0px 2px 3px #555; margin-left:22px;">Forms</div>
 			
